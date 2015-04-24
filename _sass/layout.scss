@@ -16,7 +16,7 @@ nav {
   padding: 72px 0;
   text-align: center;
   @media (min-width: 940px) {
-    width: 22.5%;
+    width: 18%;
     transform: translateX(14rem);
     height: 91.2%;
   }
@@ -42,7 +42,7 @@ nav.menu-open {
   transform: translateX(14rem);
   width: 100%;
   @media (min-width: 940px) {
-    width: 22.5%;
+    width: 18%;
   }
 }
 
@@ -123,7 +123,7 @@ h1, h2 {
 	@media (min-width: 940px) {
 	  float: right;
 	  max-width: none;
-	  width: 75%;
+	  width: 80%;
   }
 }
 
@@ -264,6 +264,6 @@ footer {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 22.5%;
+    width: 18%;
   }
 }
