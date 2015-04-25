@@ -27,3 +27,9 @@ defaults:
 # Custom variables
 version: "1.0"
 lang: "en"
+
+navigation:
+  - title: Home
+    url: index
+  - title: About
+    url: about

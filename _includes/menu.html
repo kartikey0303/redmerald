@@ -1,9 +1,23 @@
 <nav id="nav">
-	<ul id="nav-list">
-	  <li><a href="{{ site.baseurl }}">Home</a></li>
-	  <li><a href="{{ site.baseurl }}about.html">About Redmerald</a></li>
-	  <li><a href="https://github.com/Vesuvium/redmerald/archive/master.zip">Download</a></li>
-	  <li><a href="https://github.com/Vesuvium/redmerald">Project on Github</a></li>
-	  <li><a href="https://github.com/KingFelix/emerald">Emerald on Github</a></li>
-	</ul>
+	<div id="nav-list">
+    {% for item in site.navigation %}
+		{% if item.url == 'index' %}
+			{% if page.url == '/index.html' %}
+				<a href="{{ site.baseurl }}" class="active">{{ item.title }}</a>
+			{% else %}
+				<a href="{{ site.baseurl }}">{{ item.title }}</a>
+			{% endif %}
+		{% else %}
+			{% if page.url contains item.url %}
+				<a href="{{ site.baseurl }}{{ item.url }}" class="active">{{ item.title }}</a>
+			{% else %}
+				<a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
+			{% endif %}
+		{% endif %}
+    {% endfor %}
+		<!-- external links cannot be active, so no need to loop over them -->
+		<a href="https://github.com/Vesuvium/redmerald/archive/master.zip">Download</a>
+        <a href="https://github.com/Vesuvium/redmerald">Project on Github</a>
+        <a href="https://github.com/KingFelix/emerald">Emerald on Github</a>
+  </div>
 </nav>

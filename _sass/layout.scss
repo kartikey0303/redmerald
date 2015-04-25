@@ -28,6 +28,8 @@ nav {
     font-weight: 400;
     @media (min-width: 940px) {
       font-size: 1em;
+	  .active {
+	  }
     }
     &:hover {
       background-color: #FFF;
@@ -44,6 +46,11 @@ nav.menu-open {
   @media (min-width: 940px) {
     width: 18%;
   }
+}
+
+nav a.active {
+	background-color: #FFF;
+	color: $main-color;
 }
 
 #nav-list:after {
