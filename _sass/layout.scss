@@ -15,11 +15,6 @@ nav {
   z-index: 1;
   padding: 72px 0;
   text-align: center;
-  @media (min-width: 940px) {
-    width: 18%;
-    transform: translateX(14rem);
-    height: 91.2%;
-  }
   a {
     display: block;
     color: $background-color;
@@ -69,9 +64,6 @@ nav a.active {
   left: 25px;
   z-index: 10;
   height: 24px;
-  @media (min-width: 940px) {
-    display: none;
-  }
 }
 
 /* Icon menu */
@@ -127,22 +119,16 @@ h1, h2 {
 	margin:0 auto;
 	max-width: 730px;
 	padding: 0 1.5rem;
-	@media (min-width: 940px) {
-	  float: right;
-	  max-width: none;
-	  width: 80%;
-  }
+	@media (min-width: 940px){
+		max-width: none;
+		width: 77.6%;
+	}
 }
 
 #header {
   text-align: center;
   padding: 24px 0;
   position: relative;
-  @media (min-width: 940px) {
-    float: right;
-    text-align: left;
-    width: 75%;
-  }
   
   a {
   	text-decoration: none;
@@ -266,11 +252,4 @@ footer {
   color: $background-color;
   text-align: center;
   padding: 0.6667em 0;
-  @media (min-width: 940px) {
-    clear: both;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 18%;
-  }
 }
