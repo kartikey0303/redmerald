@@ -14,6 +14,7 @@ p {
 	font-size: 1em; /* 16px */
 	line-height: 1.5em; /* 24px/16px */
 	margin-bottom: 1.5em; /* 24px/16px */
+	word-spacing: 0.1em; /* Custom */
 }
 
 h1 {
@@ -33,6 +34,7 @@ h3, h4, h5, h6 {
 	line-height: 1.3334em; /* 24px/18px */
 	padding: 0.66667em 0; /* 12px/18px * 2 (Use padding instead of margin to maintain proximity with paragraph) */
 }
+
 blockquote {
 	font-style: italic;
 	margin: 1.5em; /* 24px/18px */
@@ -52,7 +54,7 @@ blockquote {
 
 p {
 	font-size: 1em; /* 18px */
-	line-height: 1.3334em; /* 24px/18px */
+	/*line-height: 1.3334em; */ /* 24px/18px */
 	margin-bottom: 1.3334em; /* 24px/18px */
 }
 
