@@ -106,6 +106,7 @@ nav a.active {
 /* Main content */
 h1, h2 {
 	font-family: Cinzel, serif;
+	letter-spacing: 1px;
 }
 
 .fixed {
@@ -117,11 +118,11 @@ h1, h2 {
 
 #container {
 	margin:0 auto;
-	max-width: 730px;
+	max-width: 55em;
 	padding: 0 1.5rem;
-	@media (min-width: 940px){
-		max-width: none;
-		width: 77.6%;
+	p {
+		line-height: 1.5em;
+		word-spacing: 0.1em;
 	}
 }
 
