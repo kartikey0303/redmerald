@@ -20,7 +20,12 @@
 	    {% include header.html %}
 
     <!-- Main content -->
-	  <div id="container">
+    {% if page.url == '/index.html' %}
+		<div id="container">
+    {% else %}
+		<div id="container" class="bottom-margin">
+    {% endif %}
+	  
 		  
 		<main>
 			{{ content }}

@@ -129,7 +129,13 @@ h1, h2 {
 	margin:0 auto;
 	max-width: 55em;
 	padding: 0 1.5rem;
+	
+	&.bottom-margin {
+		margin-bottom: 3em;
+	}
 }
+
+
 
 #header {
   text-align: center;
