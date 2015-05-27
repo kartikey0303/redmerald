@@ -1,4 +1,10 @@
 <header id="header">
 	<a href="{{ site.baseurl }}">Home</a>   
 	<h1>{%if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+	{% if page.next %}
+	<a href="{{ site.baseurl }}{{ page.next.url }}">&laquo; {{ page.next.title }}</a>
+	{% endif %}
+	{% if page.previous %}
+	<a href="{{ site.baseurl }}{{ page.previous.url }}">{{ page.previous.title }} &raquo;</a>
+	{% endif %}
 </header>

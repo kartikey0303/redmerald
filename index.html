@@ -7,7 +7,7 @@ layout: default
 	{% for post in paginator.posts %}
 
 	  <li class="post">
-	  	<h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+	  	<a class="h2" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }} &gt;&gt;</a>
 	  	<time datetime="{{ post.date | date_to_xmlschema }}" class="by-line">{{ post.date | date_to_string }}</time>
 	  	<p>{{ post.content | strip_html | truncatewords:50 }}</p>
 	  </li>
