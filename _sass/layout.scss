@@ -1,4 +1,4 @@
-/*- General Layout -*/
+/* -- General Layout -- */
 
 /* Navigation */
 
@@ -35,6 +35,7 @@ nav {
     }
 }
 
+
 nav.menu-open {
   -ms-transform: translateX(14rem);
   -webkit-transform: translateX(14rem);
@@ -50,6 +51,27 @@ nav a.active {
 	color: $main-color;
 }
 
+
+#nav {
+  @include nav-position(right);
+}
+
+#nav-left {
+  @include nav-position(left);
+}
+
+/* Toggle class to open menu */
+
+#nav.menu-open {
+  @include open(-14rem);
+}
+
+#nav-left.menu-open-left {
+  @include open(14rem);
+}
+
+
+/* Separator after menu */
 #nav-list:after {
   display: block;
   content: '';
@@ -59,6 +81,8 @@ nav a.active {
   background-color: $background-color;
 }
 
+/* Icon menu */
+
 #nav-menu {
   display: block;
   position: fixed;
@@ -66,9 +90,12 @@ nav a.active {
   left: 25px;
   z-index: 10;
   height: 24px;
+  @include icon-position(right);
 }
 
-/* Icon menu */
+#nav-menu-left {
+  @include icon-position(left);
+}
 
 #menu {
   height: 4px;
@@ -95,16 +122,18 @@ nav a.active {
   }
   &.btn-close:before {
     top: 0;
-    -ms-transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
     background-color: $background-color;
   }
   &.btn-close:after {
     top: -4px;
-    -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
     background-color: $background-color;
   }
 }
@@ -214,6 +243,7 @@ img {
   margin-bottom: 24px;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
           border-radius: 4px;
 }
 
@@ -227,6 +257,7 @@ code {
 }
 
 /* Set the vertical rhythm (and padding-left) for lists inside post content */
+
 .content ul, .content ol {
   line-height: 1.5em; /* 24px/16px */
   padding-left: 1.5em;
@@ -235,7 +266,14 @@ code {
   }
 }
 
+/* Pages */
+
+#page ul, #page ol {
+  padding-left: 1.5em;
+}
+
 /* Paginator */
+
 .pagination {
   text-align: center;
   margin: 2.666668em;
@@ -255,10 +293,12 @@ code {
   padding: 0.5em 1em;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
           border-radius: 4px;
 }
 
 /* Footer */
+
 footer {
 	display:none;
 	/*

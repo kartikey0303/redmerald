@@ -16,6 +16,14 @@ It is also possible to fork the repository and use Github Pages as hosting.
 
 You will have to change the ``baseurl`` value into the ``_config.yml`` file, with the directory name of your project (for example /blog) or simply with a "/" (slash) if you want install Redmerald in the root.
 
+### Colors
+The basic colors are set into the ``base.scss`` file:
+- $main-color: used for the menu, title, link and footer
+- $background-color: used for background and links in the navigation menu
+- $text-color: used for text and title in posts and pages 
+
+### Navigation menu
+Edit the configuration file to set the navigation menu pages. 
 
 ## License
 

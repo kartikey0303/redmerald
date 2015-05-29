@@ -1,10 +1,12 @@
 ---
-layout: default
+layout: page
 title: About Redmerald
+
 ---
 ## About
 
 Redmerald is a theme based on [Jacopo Rabolini](http://www.jacoporabolini.com)'s [Emerald](https://github.com/KingFelix/emerald/)
+
 
 ## Setup & usage
 
@@ -24,3 +26,6 @@ You will have to change the ``baseurl`` value into the ``_config.yml`` file, wit
 ## License
 
 Redmerald is released under [MIT License](license.md).
+
+Enjoy!
+
