@@ -282,5 +282,15 @@ function listenerAttacher( element ){
 	}, false);
 	
 	// Keyboard events
+	window.addEventListener('keydown', function(e){
+		if ( e.keyCode == 37){
+			// Left arrow
+			console.log( 'Not implemented yet! ');
+		}
+		else if ( e.keyCode == 39){
+			// Right arrow
+			console.log( 'Not implemented yet! ');
+		}
+	}, false);
 
 })();
