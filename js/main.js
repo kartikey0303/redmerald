@@ -244,15 +244,18 @@ function listenerAttacher( element ){
 	console.log('calling init');
 	console.log('Location: ' + window.location.href);
 	
-	// Ensures backward compatibility with IE old versions
+	// Adds the event listener for the menu
 	if ( document.addEventListener && icon !== null ) {
-		icon.addEventListener( 'click', toggle, false );
+		icon.addEventListener( 'click', function(e){ 
+			e.preventDefault();
+			toggle();
+		}, false );
 	} 
 	else if (document.attachEvent && icon !== null ) {
-		icon.attachEvent( 'onclick', toggle );
-	} 
-	else {
-		return;
+		icon.attachEvent( 'onclick', function(e){
+			e.preventDefault();
+			toggle();
+		});
 	}
 	
 	// Set a cookie
