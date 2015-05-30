@@ -1,6 +1,5 @@
 var normal = document.getElementById("nav-menu");
 var reverse = document.getElementById("nav-menu-left");
-
 var icon = normal !== null ? normal : reverse;
 
 // Toggle the "menu-open" % "menu-opn-left" classes
@@ -25,20 +24,9 @@ function toggle() {
 	  	  button.className += "btn-close";
 	  	  site.className += "fixed";
 	    }
-	}
-
-// Ensures backward compatibility with IE old versions
-function menuClick() {
-	if (document.addEventListener && icon !== null) {
-		icon.addEventListener('click', toggle);
-	} else if (document.attachEvent && icon !== null) {
-		icon.attachEvent('onclick', toggle);
-	} else {
-		return;
-	}
 }
 
-menuClick();
+
 
 function getElement( id ){
 	// A simple shorthand for document.getElementById
@@ -255,6 +243,17 @@ function listenerAttacher( element ){
 	// Init function - performs init tasks.
 	console.log('calling init');
 	console.log('Location: ' + window.location.href);
+	
+	// Ensures backward compatibility with IE old versions
+	if ( document.addEventListener && icon !== null ) {
+		icon.addEventListener( 'click', toggle, false );
+	} 
+	else if (document.attachEvent && icon !== null ) {
+		icon.attachEvent( 'onclick', toggle );
+	} 
+	else {
+		return;
+	}
 	
 	// Set a cookie
     var d = new Date();
