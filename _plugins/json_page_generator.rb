@@ -46,8 +46,8 @@ module Jekyll
         end
 
         output['content'] = post.transform
-        output['next'] = output['next'].id unless output['next'].nil?
-        output['previous'] = output['previous'].id unless output['previous'].nil?
+        output['next'] = [output['next'].id, output['next'].title] unless output['next'].nil?
+        output['previous'] = [output['previous'].id, output['previous'].title] unless output['previous'].nil?
 
         site.pages << JSONPage.new(site, site.source, File.dirname(path), File.basename(path), output.to_json)
       end

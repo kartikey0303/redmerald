@@ -3,9 +3,10 @@
 	
 	<h1>{%if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
 	{% if page.next %}
-		<a href="{{ site.baseurl }}{{ page.next.url }}">&laquo; {{ page.next.title }}</a>
+		<a class="blog-nav" href="{{ site.baseurl }}{{ page.next.url }}" title="Go to the previous post">&laquo; {{ page.next.title }}</a>
 	{% endif %}
+	{% if page.next && page.previous %}<span>-</span>{% endif %}
 	{% if page.previous %}
-		<a href="{{ site.baseurl }}{{ page.previous.url }}">{{ page.previous.title }} &raquo;</a>
+		<a class="blog-nav" href="{{ site.baseurl }}{{ page.previous.url }}" title="Go to the next post">{{ page.previous.title }} &raquo;</a>
 	{% endif %}
 </header>
