@@ -147,25 +147,15 @@ function getCookie(cookieName){
 }
 
 function updatePage(json){
-	// Updates the page with the post data.
-	var postData;
-	var main;
-	var article;
-	var div;
-	var title;
-	var url;
-	var a;
+	// Updates the page with the post data that has been loaded through
+	// AJAX.
 	
-	postData = JSON.parse(json);
-	console.log(postData);
-	
+	var postData = JSON.parse(json);
 	var siteRoot = getCookie('site-root');
 	
-    
-    
 	// Update URL and document.title
-	url = siteRoot + postData.url;
-	title = postData.title + ' · A simple Jekyll theme';
+	var url = siteRoot + postData.url;
+	var title = postData.title + ' · A simple Jekyll theme';
 	document.title = title;
 	
 	// Push the state if it's not a popevent.
@@ -174,7 +164,7 @@ function updatePage(json){
 	}
 	
 	// Clear the main.
-	main = document.getElementsByTagName('main')[0];
+	var main = document.getElementsByTagName('main')[0];
 	main.innerHTML = '';
 	
 	// Pagination does not always exist.
@@ -189,7 +179,6 @@ function updatePage(json){
 	if ( document.getElementsByClassName('blog-nav')[0] ){
 		getElement('header').removeChild(document.getElementsByClassName('blog-nav')[0]);
 	}
-	
 	if ( document.querySelector('#header span') ){
 		getElement('header').removeChild( document.querySelector('#header span') );
 	}
@@ -197,14 +186,15 @@ function updatePage(json){
 	
 	// Updates the page elements
 	document.getElementsByTagName('h1')[0].innerHTML = postData.title;
-	article = createElement('article', 'post-page', '', main);
-	div = createElement('time', '', postData.date, article);
+	var article = createElement('article', 'post-page', '', main);
+	var div = createElement('time', '', postData.date, article);
 	div.dateTime = postData.date;
 	div.className = 'by-line';
 	div = createElement('div', '', postData.content, article)
 	div.className = 'content';
 	
-	//
+	// Updates the header navigation
+	var a;
 	if ( postData.next != null ){
 		a = createElement('a', '', '&laquo; ' + postData.next[1], getElement('header'));
 		a.href = siteRoot + postData.next[0];
@@ -245,8 +235,6 @@ function listenerAttacher( element ){
 
 (function(){
 	// Init function - performs init tasks.
-	console.log('calling init');
-	console.log('Location: ' + window.location.href);
 	
 	// Adds the event listener for the menu
 	if ( document.addEventListener && icon !== null ) {
@@ -256,18 +244,19 @@ function listenerAttacher( element ){
 		}, false );
 	} 
 	else if (document.attachEvent && icon !== null ) {
+		// IE support
 		icon.attachEvent( 'onclick', function(e){
 			e.preventDefault();
 			toggle();
 		});
 	}
 	
-	// Set a cookie
+	// Sets a cookie with the site root. 
+	// This actually sets the page loaded through HTTP as the site root. 
     var d = new Date();
     d.setTime(d.getTime() + (365*24*60*60));
     var expires = "expires="+d.toUTCString();
     document.cookie = "site-root=" + window.location.href + "; " + expires;
-	
 	
 	// Adds the event listener to all elements that require it.
 	// Also prevents hrefs to fire.
