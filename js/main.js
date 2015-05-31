@@ -1,29 +1,33 @@
-var normal = document.getElementById("nav-menu");
-var reverse = document.getElementById("nav-menu-left");
+var normal = getElement("nav-menu");
+var reverse = getElement("nav-menu-left");
 var icon = normal !== null ? normal : reverse;
 
-// Toggle the "menu-open" % "menu-opn-left" classes
-function toggle() {
-	  var navRight = document.getElementById("nav");
-	  var navLeft = document.getElementById("nav-left");
-	  var nav = navRight !== null ? navRight : navLeft;
 
-	  var button = document.getElementById("menu");
-	  var site = document.getElementById("wrap");
+function toggle() {
+	// Toggle the "menu-open" % "menu-opn-left" classes to display/hide
+	// the menu.
+	var navRight = getElement("nav");
+	var navLeft = getElement("nav-left");
+	var nav = navRight !== null ? navRight : navLeft;
+
+	var button = getElement("menu");
+	var site = getElement("wrap");
 	  
-	  if (nav.className == "menu-open" || nav.className == "menu-open-left") {
-	  	  nav.className = "";
-	  	  button.className = "";
-	  	  site.className = "";
-	  } else if (reverse !== null) {
-	  	  nav.className += "menu-open-left";
-	  	  button.className += "btn-close";
-	  	  site.className += "fixed";
-	  } else {
-	  	  nav.className += "menu-open";
-	  	  button.className += "btn-close";
-	  	  site.className += "fixed";
-	    }
+	if (nav.className == "menu-open" || nav.className == "menu-open-left") {
+	  	nav.className = "";
+	  	button.className = "";
+	  	site.className = "";
+	} 
+	else if (reverse !== null) {
+	  	nav.className += "menu-open-left";
+	  	button.className += "btn-close";
+	  	site.className += "fixed";
+	  } 
+	else {
+	  	nav.className += "menu-open";
+	  	button.className += "btn-close";
+	  	site.className += "fixed";
+	}
 }
 
 
