@@ -173,11 +173,11 @@ function updatePage(json){
 	}
 	
 	// Clears the header navigation elements when they exist.
-	if ( document.getElementsByClassName('blog-nav')[0] ){
-		getElement('header').removeChild(document.getElementsByClassName('blog-nav')[0]);
+	if ( getElement('post-next') ){
+		getElement('header').removeChild(getElement('post-next'));
 	}
-	if ( document.getElementsByClassName('blog-nav')[0] ){
-		getElement('header').removeChild(document.getElementsByClassName('blog-nav')[0]);
+	if ( getElement('post-prev') ){
+		getElement('header').removeChild(getElement('post-prev'));
 	}
 	if ( document.querySelector('#header span') ){
 		getElement('header').removeChild( document.querySelector('#header span') );
@@ -196,9 +196,8 @@ function updatePage(json){
 	// Updates the header navigation
 	var a;
 	if ( postData.next != null ){
-		a = createElement('a', '', '&laquo; ' + postData.next[1], getElement('header'));
+		a = createElement('a', 'post-next', '&laquo; ' + postData.next[1], getElement('header'));
 		a.href = siteRoot + postData.next[0];
-		a.className = 'blog-nav';
 		a.title = 'Go to the next post'
 		listenerAttacher( a );
 	}
@@ -206,10 +205,9 @@ function updatePage(json){
 		createElement( 'span', '', ' - ', getElement('header') );
 	}
 	if ( postData.previous != null ){
-		a = createElement('a', '', postData.previous[1] + ' &raquo;', getElement('header'));
+		a = createElement('a', 'post-prev', postData.previous[1] + ' &raquo;', getElement('header'));
 		a.href = siteRoot + postData.previous[0];
 		a.title = 'Go to the previous post';
-		a.className = 'blog-nav';
 		listenerAttacher( a );
 	}
 }
