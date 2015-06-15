@@ -236,45 +236,48 @@ function listenerAttacher( element ){
 (function(){
 	// Init function - performs init tasks.
 	
-	// Adds the event listener for the menu
-	if ( document.addEventListener && icon !== null ) {
-		icon.addEventListener( 'click', function(e){ 
-			e.preventDefault();
-			toggle();
-		}, false );
-	} 
-	else if (document.attachEvent && icon !== null ) {
-		// IE support
-		icon.attachEvent( 'onclick', function(e){
-			e.preventDefault();
-			toggle();
-		});
-	}
 	
-	// Sets a cookie with the site root. 
-	// This actually sets the page loaded through HTTP as the site root. 
-    var d = new Date();
-    d.setTime(d.getTime() + (365*24*60*60));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = "site-root=" + window.location.href + "; " + expires;
-	
-	// Adds the event listener to all elements that require it.
-	// Also prevents hrefs to fire.
-	var posts = document.querySelectorAll('.h2');
-	for (var i = 0; i < posts.length; i++){
-		listenerAttacher( posts[i] );
-	}
-	
-	// Adds a popstate listener for backwards navigation.
-	window.addEventListener('popstate', function(e){
-		if ( e.state == null ){
-			window.location = 'http://localhost/redmerald';
+	if ( window.history && window.history.pushState ){
+		// Adds the event listener for the menu
+		if ( document.addEventListener && icon !== null ) {
+			icon.addEventListener( 'click', function(e){ 
+				e.preventDefault();
+				toggle();
+			}, false );
+		} 
+		else if (document.attachEvent && icon !== null ) {
+			// IE support
+			icon.attachEvent( 'onclick', function(e){
+				e.preventDefault();
+				toggle();
+			});
 		}
-		else {
-			//console.log( 'popevent' );
-			loadPost( e.state.page + '.json' );
+		
+		// Sets a cookie with the site root. 
+		// This actually sets the page loaded through HTTP as the site root. 
+		var d = new Date();
+		d.setTime(d.getTime() + (365*24*60*60));
+		var expires = "expires="+d.toUTCString();
+		document.cookie = "site-root=" + window.location.href + "; " + expires;
+		
+		// Adds the event listener to all elements that require it.
+		// Also prevents hrefs to fire.
+		var posts = document.querySelectorAll('.h2');
+		for (var i = 0; i < posts.length; i++){
+			listenerAttacher( posts[i] );
 		}
-	}, false);
+		
+		// Adds a popstate listener for backwards navigation.
+		window.addEventListener('popstate', function(e){
+			if ( e.state == null ){
+				window.location = 'http://localhost/redmerald';
+			}
+			else {
+				//console.log( 'popevent' );
+				loadPost( e.state.page + '.json' );
+			}
+		}, false);
+	}
 	
 	// Keyboard events
 	window.addEventListener('keydown', function(e){
