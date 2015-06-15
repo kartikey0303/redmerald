@@ -281,11 +281,15 @@ function listenerAttacher( element ){
 	window.addEventListener('keydown', function(e){
 		if ( e.keyCode == 37){
 			// Left arrow
-			console.log( 'Not implemented yet! ');
+			if ( getElement('post-next') ){
+				loadPost( getElement('post-next').href + '.json' );
+			}
 		}
 		else if ( e.keyCode == 39){
 			// Right arrow
-			console.log( 'Not implemented yet! ');
+			if ( getElement('post-prev') ){
+				loadPost( getElement('post-prev').href + '.json' );
+			}
 		}
 	}, false);
 
