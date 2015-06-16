@@ -26,6 +26,8 @@ defaults:
       layout: "post"
 
 # Custom variables
+# This section holds all the custom variables that are used by this 
+# theme.
 version: "1.1.0"
 lang: "en"
 
