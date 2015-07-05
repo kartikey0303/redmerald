@@ -26,17 +26,18 @@ defaults:
       layout: "post"
 
 # Custom variables
-# This section holds all the custom variables that are used by this 
+# This section holds all the custom variables that are used by this
 # theme.
 version: "1.1.0"
 lang: "en"
+subtitle: "A Jekyll theme"
 
 navigation:
   - title: Home
     url: index
   - title: About
     url: about
-    
+
 
 
 # Options
