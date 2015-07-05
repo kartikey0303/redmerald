@@ -14,10 +14,14 @@
 	{% endif %}
 
 	<title>
-		{%if page.title %}
-			{{ page.title }} &#183; {{ site.title }}
+		{% if page.url == '/index.html' %}
+			{{ site.title }} &#183; {{ site.subtitle }}
 		{% else %}
-			{{ site.title }}
+			{%if page.title %}
+				{{ page.title }} &#183; {{ site.title }}
+			{% else %}
+				{{ site.title }}
+			{% endif %}
 		{% endif %}
 	</title>
 
